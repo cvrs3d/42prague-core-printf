@@ -6,7 +6,7 @@
 /*   By: yustinov <ev.ustinov03@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 15:22:28 by yustinov          #+#    #+#             */
-/*   Updated: 2024/09/25 13:42:58 by yustinov         ###   ########.fr       */
+/*   Updated: 2024/09/25 13:52:37 by yustinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ int	ft_parse_convertion(const char **format, va_list ap)
 		(*format)++;
 	}
 	config->(char)(**format);
+	free(config);
 	return (ft_handler(config, ap));
 }
 
