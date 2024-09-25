@@ -6,7 +6,7 @@
 /*   By: yustinov <ev.ustinov03@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 15:22:28 by yustinov          #+#    #+#             */
-/*   Updated: 2024/09/25 11:03:18 by yustinov         ###   ########.fr       */
+/*   Updated: 2024/09/25 12:37:53 by yustinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ int	ft_parse_convertion(const char **format, va_list ap)
 	t_Config	*config;
 
 	config = initialize_config();
-	if (config = NULL)
+	if (config == NULL)
 		return (-1);
-	while (**format != '\0' && ft_is_alpha(**format) == 0)
+	while (**format != '\0' && ft_is_alpha(**format) == 0 && **format != '%')
 	{
 		if (**format == '-')
 			config->left_justify = 1;
@@ -41,10 +41,10 @@ int	ft_parse_convertion(const char **format, va_list ap)
 			config->pad_zero = proc_zero(format);
 		if (**format == '.')
 			config->precision = proc_precs(format);
-	       (*format)++;
+		(*format)++;
 	}
 	config->(char)(**format);
-	return (handler(config, ap));
+	return (ft_handler(config, ap));
 }
 
 /*TODO: Implement int proc_zero(const char **f);

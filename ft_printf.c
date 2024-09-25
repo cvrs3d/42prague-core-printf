@@ -6,7 +6,7 @@
 /*   By: yustinov <ev.ustinov03@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 11:38:56 by yustinov          #+#    #+#             */
-/*   Updated: 2024/09/24 15:23:54 by yustinov         ###   ########.fr       */
+/*   Updated: 2024/09/25 12:01:11 by yustinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
  * Otherwise I write char to a console and  repeat;
  * Return values [-1: ERROR, int: OK (len of chars printed)]
  * Passing addr of pointer to correctly increment position.*/
+int	ft_printf(const char *string, ...) __attribute__((format(printf, 1, 2)));
+
 int	ft_printf(const char *string, ...)
 {
 	va_list	ap;

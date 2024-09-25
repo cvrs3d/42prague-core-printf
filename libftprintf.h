@@ -6,7 +6,7 @@
 /*   By: yustinov <ev.ustinov03@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 11:35:23 by yustinov          #+#    #+#             */
-/*   Updated: 2024/09/25 11:03:38 by yustinov         ###   ########.fr       */
+/*   Updated: 2024/09/25 12:01:41 by yustinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ typedef struct t_config
 	int	specifier;
 }		t_Config;
 
-int	ft_printf(const char *string, ...);
+int	ft_printf(const char *string, ...) __attribute__((format(printf, 1, 2)));
 int	ft_output_cases(const char *format, va_list ap);
 int	ft_print_string(const char *string);
 int	ft_putchar(int c);
