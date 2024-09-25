@@ -6,7 +6,7 @@
 /*   By: yustinov <ev.ustinov03@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 11:35:23 by yustinov          #+#    #+#             */
-/*   Updated: 2024/09/25 15:36:49 by yustinov         ###   ########.fr       */
+/*   Updated: 2024/09/25 16:35:31 by yustinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
  * left_justify - values: 1 for left 0 for right;
  * width - minimal field with 0 default if > actual then
  *add trailing spaces;
- * pad_zero - deafult: 0 if > actual then add
+ * pad_zero - deafult: 0 if 1 then add
  *leading zeroes;
  * precision - default: -1 if not used, if 0
  *print blank;
