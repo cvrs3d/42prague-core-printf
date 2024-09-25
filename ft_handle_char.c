@@ -6,7 +6,7 @@
 /*   By: yustinov <ev.ustinov03@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 13:17:25 by yustinov          #+#    #+#             */
-/*   Updated: 2024/09/25 13:42:19 by yustinov         ###   ########.fr       */
+/*   Updated: 2024/09/25 14:21:33 by yustinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ int	ft_handle_char(t_Config *config, va_list ap)
 			filln_in_with(width, '0');
 		else
 			filln_in_with(width, ' ');
+		write (STDOUT_FILENO, &c, 1);
 	}
-	write (STDOUT_FILENO, &c, 1);
 	if (config->width > 0)
 		return (config->width);
 	return (1);
