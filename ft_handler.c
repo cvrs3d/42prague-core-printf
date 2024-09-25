@@ -6,7 +6,7 @@
 /*   By: yustinov <ev.ustinov03@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 11:16:08 by yustinov          #+#    #+#             */
-/*   Updated: 2024/09/25 17:16:16 by yustinov         ###   ########.fr       */
+/*   Updated: 2024/09/25 17:21:47 by yustinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,6 @@ int	ft_handler(t_Config *c, va_list ap)
 		len = ft_handle_uint(c, ap);
 	if (c->specifier == '%')
 		len = write (STDOUT_FILENO, "%", 1);
+	free(c);
 	return (len);
 }

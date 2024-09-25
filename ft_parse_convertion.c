@@ -6,7 +6,7 @@
 /*   By: yustinov <ev.ustinov03@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 15:22:28 by yustinov          #+#    #+#             */
-/*   Updated: 2024/09/25 17:12:55 by yustinov         ###   ########.fr       */
+/*   Updated: 2024/09/25 17:25:41 by yustinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 */
 
 static int	proc_width(const char **f, t_Config *c, va_list ap);
-static int	proc_precs(const char **f, t_Config *c, va_list ap);
+static int	proc_precs(const char **f, va_list ap);
 static void	proc_zero(const char **f, t_Config *c, va_list ap);
 
 int	ft_parse_convertion(const char **format, va_list ap)
@@ -43,13 +43,12 @@ int	ft_parse_convertion(const char **format, va_list ap)
 		if (**format == ' ' || **format == '0')
 			proc_zero(format, config, ap);
 		if (**format == '.')
-			config->precision = proc_precs(format, config, ap);
+			config->precision = proc_precs(format, ap);
 		if (**format == '*' || ft_isdigit(**format))
 			config->width = proc_width(format, config, ap);
 		(*format)++;
 	}
-	config->(char)(**format);
-	free(config);
+	config->specifier = (char)(**format);
 	return (ft_handler(config, ap));
 }
 
@@ -94,11 +93,11 @@ static void	proc_zero(const char **format, t_Config *cfg, va_list ap)
 		cfg->space = 1;
 	(*format)++;
 	if (ft_isdigit(**format) || **format == '*')
-		config->width = proc_width(format, config, ap);
-	return (cfg->pad_zero);
+		cfg->width = proc_width(format, cfg, ap);
+	return ;
 }
 
-static int	proc_precs(const char **format, t_Config *c, va_list ap)
+static int	proc_precs(const char **format, va_list ap)
 {
 	int	precision;
 
@@ -110,7 +109,7 @@ static int	proc_precs(const char **format, t_Config *c, va_list ap)
 	{
 		while (ft_isdigit(**format))
 		{
-			presicion = precision * 10 + (**format - '0');
+			precision = precision * 10 + (**format - '0');
 			(*format)++;
 		}
 	}
