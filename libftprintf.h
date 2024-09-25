@@ -6,7 +6,7 @@
 /*   By: yustinov <ev.ustinov03@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 11:35:23 by yustinov          #+#    #+#             */
-/*   Updated: 2024/09/24 15:48:27 by yustinov         ###   ########.fr       */
+/*   Updated: 2024/09/25 11:03:38 by yustinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,9 @@
  *if 1 adds leading 0x for %p, %x, %X;
  * force_sign - default: 0 if 1 print '+' before positive (%i, %d);
  * space - default: 0, if 1 prints ' ' before positive;
- * specifier - represent convertion specifier (d, s, c ...) as char in ascii*/
-typedef t_config struct
+ * specifier - represent convertion specifier (d, s, c ...) as char in ascii
+ * 't' for default;*/
+typedef struct t_config
 {
 	int	left_justify;
 	int	width;
@@ -42,7 +43,7 @@ typedef t_config struct
 	int	force_sign;
 	int	space;
 	int	specifier;
-}	t_Config;
+}		t_Config;
 
 int	ft_printf(const char *string, ...);
 int	ft_output_cases(const char *format, va_list ap);

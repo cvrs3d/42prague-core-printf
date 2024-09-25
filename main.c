@@ -6,7 +6,7 @@
 /*   By: yustinov <ev.ustinov03@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 12:19:11 by yustinov          #+#    #+#             */
-/*   Updated: 2024/09/24 14:23:59 by yustinov         ###   ########.fr       */
+/*   Updated: 2024/09/25 10:34:43 by yustinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ int	main(void)
 	printf("Showing the string output:      %-s\n", string);
 	printf("Showing the %%p output:%p\n", ptr);
 	printf("Showing the void %%p output:%p\n", voidptr);
-	printf("Showing the %%i output:%.3i\n", number);
+	printf("Showing the %%i output: %+d \n", number);
 	printf("showing the %%ui output: %u\n", ui);
-	printf("Showing the x output: %x\n", number);
+	printf("Showing the x output: %#x\n", number);
 	printf("showing the X output: %X\n", number);
 }
