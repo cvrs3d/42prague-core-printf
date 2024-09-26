@@ -6,7 +6,7 @@
 /*   By: yustinov <ev.ustinov03@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 13:23:57 by yustinov          #+#    #+#             */
-/*   Updated: 2024/09/26 13:58:12 by yustinov         ###   ########.fr       */
+/*   Updated: 2024/09/26 15:35:31 by yustinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,10 @@ int	ft_numlen(int number)
 	len = 0;
 	n = (long)number;
 	if (n < 0)
+	{
+		len++;
 		n *= -1;
+	}
 	while (n > 0)
 	{
 		n = n / 10;

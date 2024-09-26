@@ -6,7 +6,7 @@
 /*   By: yustinov <ev.ustinov03@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 13:37:38 by yustinov          #+#    #+#             */
-/*   Updated: 2024/09/26 14:18:24 by yustinov         ###   ########.fr       */
+/*   Updated: 2024/09/26 15:40:57 by yustinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	ft_strlen(const char *string)
 	return (len);
 }
 
-int	ft_is_alpha(int	chr)
+int	ft_is_alpha(int chr)
 {
 	if (chr >= 'a' && chr <= 'z')
 		return (1);

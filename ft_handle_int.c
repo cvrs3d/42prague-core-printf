@@ -6,11 +6,12 @@
 /*   By: yustinov <ev.ustinov03@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 10:42:58 by yustinov          #+#    #+#             */
-/*   Updated: 2024/09/26 14:04:34 by yustinov         ###   ########.fr       */
+/*   Updated: 2024/09/26 15:40:29 by yustinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
+//#include <stdio.h>
 
 static void	proc_right(t_Config *c, int i, int l, int w);
 static void	proc_left(t_Config *c, int i, int l, int w);
@@ -67,6 +68,8 @@ static void	proc_right(t_Config *c, int i, int l, int w)
 	n = (long)i;
 	if (i < 0)
 		n *= -1;
+	if (c->force_sign == 1 || i < 0)
+		l--;
 	ft_putn_nbr(n, l);
 }
 
@@ -85,6 +88,8 @@ static void	proc_left(t_Config *c, int i, int l, int w)
 	n = (long)i;
 	if (i < 0)
 		n *= -1;
+	if (c->force_sign == 1 || i < 0)
+		l--;
 	ft_putn_nbr(n, l);
 	ft_filln_with(w, ' ');
 }

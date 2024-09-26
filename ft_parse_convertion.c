@@ -6,7 +6,7 @@
 /*   By: yustinov <ev.ustinov03@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 15:22:28 by yustinov          #+#    #+#             */
-/*   Updated: 2024/09/26 14:17:37 by yustinov         ###   ########.fr       */
+/*   Updated: 2024/09/26 15:21:40 by yustinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,12 +76,13 @@ static int	proc_width(const char **format, t_Config *cfg, va_list ap)
 	}
 	else
 	{
-		while (ft_isdigit(**format))
+		while (ft_isdigit(**format) == 1)
 		{
 			width = width * 10 + (**format - '0');
 			(*format)++;
 		}
 	}
+	(*format)--;
 	return (width);
 }
 
@@ -115,5 +116,6 @@ static int	proc_precs(const char **format, va_list ap)
 	}
 	if (precision < 0)
 		precision = -1;
+	(*format)--;
 	return (precision);
 }

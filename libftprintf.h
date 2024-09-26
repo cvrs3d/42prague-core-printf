@@ -6,7 +6,7 @@
 /*   By: yustinov <ev.ustinov03@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 11:35:23 by yustinov          #+#    #+#             */
-/*   Updated: 2024/09/26 14:20:56 by yustinov         ###   ########.fr       */
+/*   Updated: 2024/09/26 15:41:33 by yustinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int			ft_handle_int(t_Config *config, va_list ap);
 int			ft_handle_uint(t_Config *config, va_list ap);
 int			ft_handle_addr(t_Config *config, va_list ap);
 int			ft_handle_hex(t_Config *config, va_list ap);
-int     		ft_strlen(const char *string);
+int			ft_strlen(const char *string);
 int			ft_numlen(int number);
 int			ft_is_alpha(int chr);
 int			ft_isdigit(int chr);
