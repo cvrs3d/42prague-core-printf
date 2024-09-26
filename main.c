@@ -6,12 +6,12 @@
 /*   By: yustinov <ev.ustinov03@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 12:19:11 by yustinov          #+#    #+#             */
-/*   Updated: 2024/09/26 14:24:20 by yustinov         ###   ########.fr       */
+/*   Updated: 2024/09/26 14:27:27 by yustinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 int main(void)
 {
-	ft_putn_nbr(42, 3);
+	ft_printf("Hello, from custom printf!");
 }
