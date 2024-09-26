@@ -6,7 +6,7 @@
 /*   By: yustinov <ev.ustinov03@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 11:35:23 by yustinov          #+#    #+#             */
-/*   Updated: 2024/09/25 16:35:31 by yustinov         ###   ########.fr       */
+/*   Updated: 2024/09/26 11:41:39 by yustinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,21 +18,23 @@
 # include <unistd.h>
 
 /* Config type struct contains fields to
- *represent following config of conversion
- *specifier (%d, %s, %c)
- * left_justify - values: 1 for left 0 for right;
- * width - minimal field with 0 default if > actual then
- *add trailing spaces;
- * pad_zero - deafult: 0 if 1 then add
- *leading zeroes;
- * precision - default: -1 if not used, if 0
- *print blank;
- * hex_form - stands for # flag, default: 0(not used)
- *if 1 adds leading 0x for %p, %x, %X;
- * force_sign - default: 0 if 1 print '+' before positive (%i, %d);
- * space - default: 0, if 1 prints ' ' before positive;
- * specifier - represent convertion specifier (d, s, c ...) as char in ascii
- * 't' for default;*/
+ *represent following          config of
+ *conversion specifier (%d, %s, %c) left
+ *_justify - values: 1 for left 0    for 
+ *right; width - minimal field with    0
+ * default if > 0 then add      trailing
+ * spaces; pad_zero - deafult: 0 if    1
+ * then add leading zeroes;  precision - 
+ * default: -1 if not used, if 0   print 
+ * blank;  hex_form - stands for # flag,
+ * default: 0(not used) if 1        adds
+ * leading 0x for %p, %x, %X; force_sign
+ * - default: 0 if 1 print '+'    before
+ * positive (%i, %d); space - default: 0
+ * , if 1 prints ' ' before    positive;
+ * specifier - represent      convertion 
+ * specifier (d, s, c ...) as char    in
+ * ascii 't' for default;*/
 typedef struct t_config
 {
 	int	left_justify;
@@ -51,4 +53,5 @@ int			ft_handle_char(t_Config *config, va_list ap);
 int			ft_parse_convertion(const char **format, va_list ap);
 int			ft_handler(t_Config *c, va_list ap);
 int			ft_handle_str(t_Config *config, va_list ap);
+void		ft_filln_with(int fieldsize, char chr);
 #endif

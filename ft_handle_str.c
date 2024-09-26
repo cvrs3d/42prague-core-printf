@@ -6,21 +6,11 @@
 /*   By: yustinov <ev.ustinov03@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 13:54:04 by yustinov          #+#    #+#             */
-/*   Updated: 2024/09/25 15:30:48 by yustinov         ###   ########.fr       */
+/*   Updated: 2024/09/26 11:43:37 by yustinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
-
-static void	filln_with(int w, char c)
-{
-	while (w > 0)
-	{
-		write (STDOUT_FILENO, &c, 1);
-		w--;
-	}
-	return ;
-}
 
 static void	put_str(const char *s, int slen)
 {
@@ -36,9 +26,9 @@ static void	put_str(const char *s, int slen)
 static void	process_rightj(const char *s, int slen, int width, t_Config *c)
 {
 	if (c->pad_zero)
-		filln_with(width, '0');
+		ft_filln_with(width, '0');
 	else
-		filln_with(width, ' ');
+		ft_filln_with(width, ' ');
 	put_str(s, slen);
 }
 
@@ -60,7 +50,7 @@ int	ft_handle_str(t_Config *config, va_list ap)
 	if (config->left_justify == 1)
 	{
 		put_str(s, slen);
-		filln_with(width, ' ');
+		ft_filln_with(width, ' ');
 	}
 	else
 		process_rightj(s, slen, width, config);

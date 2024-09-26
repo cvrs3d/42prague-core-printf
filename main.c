@@ -6,7 +6,7 @@
 /*   By: yustinov <ev.ustinov03@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 12:19:11 by yustinov          #+#    #+#             */
-/*   Updated: 2024/09/25 16:52:39 by yustinov         ###   ########.fr       */
+/*   Updated: 2024/09/26 12:05:59 by yustinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ int main(void)
     printf("Characters:\t%c %%\n", 'A');
 
     printf("Integers:\n");
-    printf("\tDecimal:\t%i %d %.6i %i %.0i %+i %i\n",
-                         1, 2,   3, 0,   0,  4,-4);
+    printf("\tDecimal:\t%i %d %.6i %i %.0i l%0+10.4i %i\n",
+                         1, 2,   3, 0,   0,  42,-4);
     printf("\tHexadecimal:\t%x %x %X %#x\n", 5, 10, 10, 6);
     printf("\tOctal:\t\t%o %#o %#o\n", 10, 10, 4);
 
