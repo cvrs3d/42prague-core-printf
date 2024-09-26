@@ -6,11 +6,15 @@
 /*   By: yustinov <ev.ustinov03@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 10:42:58 by yustinov          #+#    #+#             */
-/*   Updated: 2024/09/26 12:09:55 by yustinov         ###   ########.fr       */
+/*   Updated: 2024/09/26 13:18:53 by yustinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
+
+static void	proc_rigth(t_Config *c, int i, int l, int w);
+static void	proc_left(t_Config *c, int i, int l, int w);
+
 /* 
  * Handling integers and decimal     (they are same);
  * First of all computes length of number          to
@@ -32,7 +36,7 @@ int	ft_handle_int(t_Config *config, va_list ap)
 	if (config->force_sign || config->space && integer > 0)
 		ilen += 1;
 	if (config->precision != -1
-			&& config->precision > integer)
+		&& config->precision > integer)
 		ilen = config->prcision;
 	width = config->width - ilen;
 	if (width < 0)
@@ -53,12 +57,17 @@ int	ft_handle_int(t_Config *config, va_list ap)
  */
 static void	proc_rigth(t_Config *c, int i, int l, int w)
 {
+	long	n;
+
 	ft_put_sign(c, i);
 	if (config->pad_zero == 1)
 		ft_filln_with(w, '0');
 	else if (config->space == 1 && c->force_sign != 1)
 		ft_filln_with(w, ' ');
-	ft_putn_nbr(i, l);
+	n = (long)i;
+	if (i < 0)
+		n *= -1;
+	ft_putn_nbr(n, l);
 }
 
 /*
@@ -70,7 +79,12 @@ static void	proc_rigth(t_Config *c, int i, int l, int w)
  */
 static void	proc_left(t_Config *c, int i, int l, int w)
 {
+	long	n;
+
 	ft_put_sign(c, i);
-	ft_putn_nbr(i, l);
+	n = (long)i;
+	if (i < 0)
+		n *= -1;
+	ft_putn_nbr(n, l);
 	ft_filln_with(w, ' ');
 }
