@@ -6,12 +6,20 @@
 /*   By: yustinov <ev.ustinov03@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 11:38:30 by yustinov          #+#    #+#             */
-/*   Updated: 2024/09/26 13:20:49 by yustinov         ###   ########.fr       */
+/*   Updated: 2024/09/26 13:35:43 by yustinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
+/*
+ * Widly used function, I defined its
+ * behavior via interface pattern  so
+ * now I simply call whenever I need.
+ * It just fill the field 	   of
+ * convertion type with chr if  there
+ * still present unfilled field bytes
+*/
 void	ft_filln_with(int fieldsize, char chr)
 {
 	while (fieldsize > 0)
@@ -22,6 +30,14 @@ void	ft_filln_with(int fieldsize, char chr)
 	return ;
 }
 
+/*
+ * Simple recursive putnbr but with minor
+ * difference. It also includes the   len
+ * of the int, it is helpful when dealing
+ * with precision in the printf.Meanwhile
+ * the aproach is the same,     recursive
+ * calls before printing while number > 0
+*/
 void	ft_putn_nbr(long number, int length)
 {
 	char	c;
@@ -42,6 +58,13 @@ void	ft_putn_nbr(long number, int length)
 	}
 }
 
+/*
+ * Put sign is helpful function to print signs
+ * because we will be dealing with other types
+ * of numbers. It looks into convertion   type
+ * config and outputs sign depending on  flags
+ * and number positivity as well.
+*/
 void	ft_put_sign(t_Config *config, int number)
 {
 	if (number < 0)

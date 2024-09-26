@@ -6,7 +6,7 @@
 /*   By: yustinov <ev.ustinov03@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 15:22:28 by yustinov          #+#    #+#             */
-/*   Updated: 2024/09/25 17:25:41 by yustinov         ###   ########.fr       */
+/*   Updated: 2024/09/26 14:17:37 by yustinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	ft_parse_convertion(const char **format, va_list ap)
 			proc_zero(format, config, ap);
 		if (**format == '.')
 			config->precision = proc_precs(format, ap);
-		if (**format == '*' || ft_isdigit(**format))
+		if (**format == '*' || ft_isdigit(**format) == 1)
 			config->width = proc_width(format, config, ap);
 		(*format)++;
 	}

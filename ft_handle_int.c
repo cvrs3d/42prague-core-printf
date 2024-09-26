@@ -6,13 +6,13 @@
 /*   By: yustinov <ev.ustinov03@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 10:42:58 by yustinov          #+#    #+#             */
-/*   Updated: 2024/09/26 13:18:53 by yustinov         ###   ########.fr       */
+/*   Updated: 2024/09/26 14:04:34 by yustinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-static void	proc_rigth(t_Config *c, int i, int l, int w);
+static void	proc_right(t_Config *c, int i, int l, int w);
 static void	proc_left(t_Config *c, int i, int l, int w);
 
 /* 
@@ -37,7 +37,7 @@ int	ft_handle_int(t_Config *config, va_list ap)
 		ilen += 1;
 	if (config->precision != -1
 		&& config->precision > integer)
-		ilen = config->prcision;
+		ilen = config->precision;
 	width = config->width - ilen;
 	if (width < 0)
 		width = 0;
@@ -55,14 +55,14 @@ int	ft_handle_int(t_Config *config, va_list ap)
  * characters 0 or <space> then outputs number with
  * leading zeroes if precision is greater then ilen
  */
-static void	proc_rigth(t_Config *c, int i, int l, int w)
+static void	proc_right(t_Config *c, int i, int l, int w)
 {
 	long	n;
 
 	ft_put_sign(c, i);
-	if (config->pad_zero == 1)
+	if (c->pad_zero == 1)
 		ft_filln_with(w, '0');
-	else if (config->space == 1 && c->force_sign != 1)
+	else if (c->space == 1 && c->force_sign != 1)
 		ft_filln_with(w, ' ');
 	n = (long)i;
 	if (i < 0)
