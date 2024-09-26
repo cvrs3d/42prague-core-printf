@@ -6,7 +6,7 @@
 /*   By: yustinov <ev.ustinov03@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 10:42:58 by yustinov          #+#    #+#             */
-/*   Updated: 2024/09/26 15:40:29 by yustinov         ###   ########.fr       */
+/*   Updated: 2024/09/26 16:13:35 by yustinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,11 @@ int	ft_handle_int(t_Config *config, va_list ap)
 
 	integer = va_arg(ap, int);
 	ilen = ft_numlen(integer);
+	if (config->precision != -1
+		&& config->precision > ilen)
+		ilen = config->precision;
 	if (config->force_sign || config->space && integer > 0)
 		ilen += 1;
-	if (config->precision != -1
-		&& config->precision > integer)
-		ilen = config->precision;
 	width = config->width - ilen;
 	if (width < 0)
 		width = 0;
@@ -63,7 +63,7 @@ static void	proc_right(t_Config *c, int i, int l, int w)
 	ft_put_sign(c, i);
 	if (c->pad_zero == 1)
 		ft_filln_with(w, '0');
-	else if (c->space == 1 && c->force_sign != 1)
+	else if (c->force_sign != 1)
 		ft_filln_with(w, ' ');
 	n = (long)i;
 	if (i < 0)
