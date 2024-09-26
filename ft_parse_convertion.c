@@ -6,7 +6,7 @@
 /*   By: yustinov <ev.ustinov03@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 15:22:28 by yustinov          #+#    #+#             */
-/*   Updated: 2024/09/26 16:38:36 by yustinov         ###   ########.fr       */
+/*   Updated: 2024/09/26 16:56:44 by yustinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,13 @@ int	ft_parse_convertion(const char **format, va_list ap)
  * owerflow behavior        is not
  * defined(like in real printf   )
  * Returns minimal number of chars
- * to be printed.*/
+ * to be printed. Like in    precs
+ * processer we return immideately
+ * when processed * case.     Also
+ * decrementing pointer to the chr
+ * so itsn't referencing chr after
+ * all digits.
+ */
 static int	proc_width(const char **format, t_Config *cfg, va_list ap)
 {
 	int	width;
@@ -87,6 +93,11 @@ static int	proc_width(const char **format, t_Config *cfg, va_list ap)
 	return (width);
 }
 
+/* 
+ * Processing zeroes or <space> flags, incrementing
+ * format string pointer then passing it to     the
+ * width processing.
+ */
 static void	proc_zero(const char **format, t_Config *cfg, va_list ap)
 {
 	if (cfg->left_justify == 0 && **format == '0')
@@ -99,6 +110,18 @@ static void	proc_zero(const char **format, t_Config *cfg, va_list ap)
 	return ;
 }
 
+/*
+ * If * is passed it sets precision from va_list
+ * and returns there. If not it goes into  while
+ * loop and check for digits. Importrant   thing
+ * is that by the end of the loop pointer     is
+ * addressing char after whatever digit it   was
+ * but in the parser we will increment   pointer
+ * so whatever char it was, it will be     lost.
+ * Considering that we decrement address of  the
+ * format and only then we return. Precision  is
+ * considered none when < 0.
+ */
 static int	proc_precs(const char **format, va_list ap)
 {
 	int	precision;
