@@ -6,11 +6,11 @@
 /*   By: yustinov <ev.ustinov03@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 11:38:30 by yustinov          #+#    #+#             */
-/*   Updated: 2024/09/27 17:32:01 by yustinov         ###   ########.fr       */
+/*   Updated: 2024/09/28 15:17:18 by yustinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "../libftprintf.h"
 
 /*
  * Widly used function, I defined its

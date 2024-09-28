@@ -6,11 +6,11 @@
 /*   By: yustinov <ev.ustinov03@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 13:07:28 by yustinov          #+#    #+#             */
-/*   Updated: 2024/09/28 13:26:49 by yustinov         ###   ########.fr       */
+/*   Updated: 2024/09/28 15:16:37 by yustinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "../libftprintf.h"
 
 static char	*g_hex = "0123456789abcdef";
 

@@ -6,11 +6,11 @@
 /*   By: yustinov <ev.ustinov03@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 13:37:38 by yustinov          #+#    #+#             */
-/*   Updated: 2024/09/26 15:40:57 by yustinov         ###   ########.fr       */
+/*   Updated: 2024/09/28 15:17:07 by yustinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "../libftprintf.h"
 
 /*
  * Computes string length, while this

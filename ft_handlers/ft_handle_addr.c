@@ -6,13 +6,13 @@
 /*   By: yustinov <ev.ustinov03@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 14:23:12 by yustinov          #+#    #+#             */
-/*   Updated: 2024/09/28 14:31:27 by yustinov         ###   ########.fr       */
+/*   Updated: 2024/09/28 15:14:44 by yustinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "../libftprintf.h"
 
-static void	p_l(t_Config *c, int l, int w, unsigned long a);
+static void	p_l(int l, int w, unsigned long a);
 static void	p_r(t_Config *c, int l, int w, unsigned long a);
 static int	handle_null(t_Config *c);
 
@@ -34,13 +34,13 @@ int	ft_handle_addr(t_Config *config, va_list ap)
 	if (width < 0)
 		width = 0;
 	if (config->left_justify == 1)
-		p_l(config, len - 2, width, addr);
+		p_l(len - 2, width, addr);
 	else
 		p_r(config, len - 2, width, addr);
 	return (width + len);
 }
 
-static void	p_l(t_Config *c, int l, int w, unsigned long a)
+static void	p_l(int l, int w, unsigned long a)
 {
 	write (STDOUT_FILENO, "0x", 2);
 	ft_puthexn(a, l);

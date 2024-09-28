@@ -6,11 +6,11 @@
 /*   By: yustinov <ev.ustinov03@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 13:23:57 by yustinov          #+#    #+#             */
-/*   Updated: 2024/09/27 17:31:40 by yustinov         ###   ########.fr       */
+/*   Updated: 2024/09/28 15:16:49 by yustinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "../libftprintf.h"
 
 /*
  * Simple numlen function

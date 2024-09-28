@@ -6,11 +6,11 @@
 /*   By: yustinov <ev.ustinov03@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 10:42:58 by yustinov          #+#    #+#             */
-/*   Updated: 2024/09/26 16:13:35 by yustinov         ###   ########.fr       */
+/*   Updated: 2024/09/28 15:15:28 by yustinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "../libftprintf.h"
 //#include <stdio.h>
 
 static void	proc_right(t_Config *c, int i, int l, int w);
@@ -37,7 +37,7 @@ int	ft_handle_int(t_Config *config, va_list ap)
 	if (config->precision != -1
 		&& config->precision > ilen)
 		ilen = config->precision;
-	if (config->force_sign || config->space && integer > 0)
+	if (config->force_sign || (config->space && integer > 0))
 		ilen += 1;
 	width = config->width - ilen;
 	if (width < 0)
