@@ -6,7 +6,7 @@
 /*   By: yustinov <ev.ustinov03@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 13:23:57 by yustinov          #+#    #+#             */
-/*   Updated: 2024/09/26 15:35:31 by yustinov         ###   ########.fr       */
+/*   Updated: 2024/09/27 17:31:40 by yustinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,19 @@ int	ft_numlen(int number)
 	while (n > 0)
 	{
 		n = n / 10;
+		len++;
+	}
+	return (len);
+}
+
+int	ft_uilen(unsigned int uint)
+{
+	int	len;
+
+	len = 0;
+	while (uint > 0)
+	{
+		uint = uint / 10;
 		len++;
 	}
 	return (len);

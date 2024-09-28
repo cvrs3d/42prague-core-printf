@@ -6,7 +6,7 @@
 /*   By: yustinov <ev.ustinov03@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 11:38:30 by yustinov          #+#    #+#             */
-/*   Updated: 2024/09/26 13:35:43 by yustinov         ###   ########.fr       */
+/*   Updated: 2024/09/27 17:32:01 by yustinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,4 +78,24 @@ void	ft_put_sign(t_Config *config, int number)
 		return ;
 	}
 	return ;
+}
+
+void	ft_putui(unsigned int uint, int length)
+{
+	char	c;
+
+	if (uint == 0 && length == 0)
+		return ;
+	if (uint == 0 && length > 0)
+	{
+		while (length-- > 0)
+			write (STDOUT_FILENO, "0", 1);
+		return ;
+	}
+	else
+	{
+		ft_putui(uint / 10, --length);
+		c = uint % 10 + '0';
+		write (STDOUT_FILENO, &c, 1);
+	}
 }
