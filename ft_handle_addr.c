@@ -6,7 +6,7 @@
 /*   By: yustinov <ev.ustinov03@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 14:23:12 by yustinov          #+#    #+#             */
-/*   Updated: 2024/09/28 13:45:44 by yustinov         ###   ########.fr       */
+/*   Updated: 2024/09/28 14:31:27 by yustinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ int	ft_handle_addr(t_Config *config, va_list ap)
 		return (handle_null(config));
 	addr = (unsigned long)ptr;
 	len = ft_hexlen(addr) + 2;
+	if (config->precision > len)
+		len = config->precision;
 	width = config->width - len;
 	if (width < 0)
 		width = 0;
