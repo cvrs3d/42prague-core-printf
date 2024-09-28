@@ -6,7 +6,7 @@
 /*   By: yustinov <ev.ustinov03@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 14:21:23 by yustinov          #+#    #+#             */
-/*   Updated: 2024/09/28 15:12:52 by yustinov         ###   ########.fr       */
+/*   Updated: 2024/09/28 15:38:47 by yustinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,10 @@ static void	p_l(t_Config *c, int l, int w, unsigned long h)
 {
 	if (c->hex_form == 1 && l > 1)
 		write (STDOUT_FILENO, "0x", 2);
-	ft_puthexn(h, l);
+	if (c->specifier == 'X')
+		ft_putbighexn(h, l);
+	else if (c->specifier == 'x')
+		ft_puthexn(h, l);
 	ft_filln_with(w, ' ');
 	return ;
 }
@@ -62,6 +65,9 @@ static void	p_r(t_Config *c, int l, int w, unsigned long h)
 		if (c->hex_form == 1 && l > 1)
 			write (STDOUT_FILENO, "0x", 2);
 	}
-	ft_puthexn(h, l);
+	if (c->specifier == 'X')
+		ft_putbighexn(h, l);
+	else if (c->specifier == 'x')
+		ft_puthexn(h, l);
 	return ;
 }

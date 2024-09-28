@@ -6,34 +6,78 @@
 /*   By: yustinov <ev.ustinov03@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 12:19:11 by yustinov          #+#    #+#             */
-/*   Updated: 2024/09/28 14:54:50 by yustinov         ###   ########.fr       */
+/*   Updated: 2024/09/28 15:46:08 by yustinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 #include <stdio.h>
 
-static void put_hex(unsigned long nbr)
-{
-	char	*hex;
-
-	hex = "0123456789abcdef";
-	if (nbr >= 16)
-		put_hex(nbr / 16);
-	write (STDOUT_FILENO, &hex[nbr % 16], 1);
-	return ;
-	}
-
 int main(void)
 {
-	unsigned int	ui = 999;
-	/*ft_printf("Hello, from custom printf!\n");
-	ft_printf("Trying to print out char 'c':%.cabc\n", 'c');
-	ft_printf("Trying to print out a string 'Hello': %s\n", "Hello");
-	ft_printf("Testing compile time protections", 1, 2);
-	ft_printf("Trying to print i, d types:% 0*d;\n", 4, 42);*/
-	void	*ptr = &ui;
-	unsigned long	addr = (unsigned long)ptr;
-	ft_printf("Custom:%06x\n", 16);
-	printf("Real  :%06x\n", 16);
+    // 1. Basic Conversion Tests
+
+    // Character %c
+    printf("Character (printf): %c\n", 'A');
+    ft_printf("Character (ft_printf): %c\n", 'A');
+
+    // String %s
+    printf("String (printf): %s\n", "Hello, World!");
+    ft_printf("String (ft_printf): %s\n", "Hello, World!");
+
+    // Pointer %p
+    int x = 42;
+    printf("Pointer (printf): %p\n", &x);
+    ft_printf("Pointer (ft_printf): %p\n", &x);
+
+    // Decimal/Integer %d %i
+    printf("Decimal (printf): %d\n", 123);
+    ft_printf("Decimal (ft_printf): %d\n", 123);
+    printf("Integer (printf): %i\n", -456);
+    ft_printf("Integer (ft_printf): %i\n", -456);
+
+    // Unsigned Decimal %u
+    printf("Unsigned (printf): %u\n", 12345U);
+    ft_printf("Unsigned (ft_printf): %u\n", 12345U);
+
+    // Hexadecimal %x %X
+    printf("Hex lowercase (printf): %x\n", 255);
+    ft_printf("Hex lowercase (ft_printf): %x\n", 255);
+    printf("Hex uppercase (printf): %X\n", 255);
+    ft_printf("Hex uppercase (ft_printf): %X\n", 255);
+    // Percent Sign %%
+    printf("Percent (printf): %%\n");
+    ft_printf("Percent (ft_printf): %%\n");
+
+
+    // 2. Flag and Width Tests
+
+    // Left-justify flag %-
+    printf("Left justify (printf): %-10d|\n", 123);
+    ft_printf("Left justify (ft_printf): %-10d|\n", 123);
+
+    // Zero-padding %0
+    printf("Zero pad (printf): %010d\n", 123);
+    ft_printf("Zero pad (ft_printf): %010d\n", 123);
+
+    // Precision with integers %.
+    printf("Precision (printf): %.5d\n", 42);
+    ft_printf("Precision (ft_printf): %.5d\n", 42);
+
+    // Width with precision %width.precision
+    printf("Width and precision (printf): %10.5d\n", 42);
+    ft_printf("Width and precision (ft_printf): %10.5d\n", 42);
+
+    // Flags: #, +, and space
+    printf("Hex with # (printf): %#x\n", 255);
+    ft_printf("Hex with # (ft_printf): %#x\n", 255);
+
+    printf("Force sign with + (printf): %+d\n", 42);
+    ft_printf("Force sign with + (ft_printf): %+d\n", 42);
+
+    printf("Space (printf): % d\n", 42);
+    ft_printf("Space (ft_printf): % d\n", 42);
+
+    return 0;
 }
+
