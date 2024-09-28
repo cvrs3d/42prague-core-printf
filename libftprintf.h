@@ -6,7 +6,7 @@
 /*   By: yustinov <ev.ustinov03@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 11:35:23 by yustinov          #+#    #+#             */
-/*   Updated: 2024/09/26 15:41:33 by yustinov         ###   ########.fr       */
+/*   Updated: 2024/09/28 13:32:54 by yustinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,10 @@ int			ft_strlen(const char *string);
 int			ft_numlen(int number);
 int			ft_is_alpha(int chr);
 int			ft_isdigit(int chr);
+int			ft_uilen(unsigned int uint);
+int			ft_hexlen(unsigned long addr);
+void		ft_puthexn(unsigned long addr, int length);
+void		ft_putui(unsigned int uint, int length);
 void		ft_filln_with(int fieldsize, char chr);
 void		ft_putn_nbr(long number, int length);
 void		ft_put_sign(t_Config *config, int number);
