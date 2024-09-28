@@ -6,7 +6,7 @@
 /*   By: yustinov <ev.ustinov03@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 12:19:11 by yustinov          #+#    #+#             */
-/*   Updated: 2024/09/28 12:58:34 by yustinov         ###   ########.fr       */
+/*   Updated: 2024/09/28 13:49:35 by yustinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,6 @@ int main(void)
 	ft_printf("Trying to print i, d types:% 0*d;\n", 4, 42);*/
 	void	*ptr = &ui;
 	unsigned long	addr = (unsigned long)ptr;
-	printf("Addr: %lu \n", addr);
-	printf("Addr in hex form using flag %.32lx\n", addr);
-	put_hex(addr);
-	printf("\n");
-	printf("Hex form:%#p", NULL);
+	ft_printf("Custom:%%\n");
+	printf("Real  :%%\n");
 }
