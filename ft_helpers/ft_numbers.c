@@ -6,24 +6,22 @@
 /*   By: yustinov <ev.ustinov03@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 13:23:57 by yustinov          #+#    #+#             */
-/*   Updated: 2024/09/28 15:16:49 by yustinov         ###   ########.fr       */
+/*   Updated: 2024/09/29 12:51:54 by yustinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libftprintf.h"
+#include "../ft_printf.h"
 
 /*
  * Simple numlen function
  * that calculates number
  * of digits in the   int
  */
-int	ft_numlen(int number)
+int	ft_numlen(long long n)
 {
-	int		len;
-	long	n;
+	int	len;
 
 	len = 0;
-	n = (long)number;
 	if (n < 0)
 	{
 		len++;
@@ -37,7 +35,7 @@ int	ft_numlen(int number)
 	return (len);
 }
 
-int	ft_uilen(unsigned int uint)
+int	ft_uilen(unsigned long uint)
 {
 	int	len;
 

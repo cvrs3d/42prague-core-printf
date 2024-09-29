@@ -6,11 +6,11 @@
 /*   By: yustinov <ev.ustinov03@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 13:54:04 by yustinov          #+#    #+#             */
-/*   Updated: 2024/09/28 15:13:19 by yustinov         ###   ########.fr       */
+/*   Updated: 2024/09/29 12:12:45 by yustinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libftprintf.h"
+#include "../ft_printf.h"
 
 static void	put_str(const char *s, int slen)
 {

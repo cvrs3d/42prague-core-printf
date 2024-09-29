@@ -6,11 +6,11 @@
 /*   By: yustinov <ev.ustinov03@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 14:21:23 by yustinov          #+#    #+#             */
-/*   Updated: 2024/09/28 15:38:47 by yustinov         ###   ########.fr       */
+/*   Updated: 2024/09/29 12:12:19 by yustinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libftprintf.h"
+#include "../ft_printf.h"
 
 static void	p_l(t_Config *c, int l, int w, unsigned long h);
 static void	p_r(t_Config *c, int l, int w, unsigned long h);

@@ -6,11 +6,11 @@
 /*   By: yustinov <ev.ustinov03@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 15:22:28 by yustinov          #+#    #+#             */
-/*   Updated: 2024/09/29 11:49:16 by yustinov         ###   ########.fr       */
+/*   Updated: 2024/09/29 12:11:07 by yustinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 //#include <stdio.h>
 
 /* Parser of the conversions, works with 7

@@ -6,11 +6,11 @@
 /*   By: yustinov <ev.ustinov03@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 11:16:08 by yustinov          #+#    #+#             */
-/*   Updated: 2024/09/28 15:45:21 by yustinov         ###   ########.fr       */
+/*   Updated: 2024/09/29 12:10:19 by yustinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 /* Arguments: config (already checked in parser so 
  * no pointer check required I guess;

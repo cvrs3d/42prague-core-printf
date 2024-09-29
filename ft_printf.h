@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yustinov <ev.ustinov03@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/24 11:35:23 by yustinov          #+#    #+#             */
-/*   Updated: 2024/09/28 15:38:25 by yustinov         ###   ########.fr       */
+/*   Created: 2024/09/29 12:09:25 by yustinov          #+#    #+#             */
+/*   Updated: 2024/09/29 13:14:26 by yustinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
 # include <stdlib.h>
 # include <stdarg.h>
@@ -58,15 +58,15 @@ int			ft_handle_uint(t_Config *config, va_list ap);
 int			ft_handle_addr(t_Config *config, va_list ap);
 int			ft_handle_hex(t_Config *config, va_list ap);
 int			ft_strlen(const char *string);
-int			ft_numlen(int number);
+int			ft_numlen(long long number);
 int			ft_is_alpha(int chr);
 int			ft_isdigit(int chr);
-int			ft_uilen(unsigned int uint);
+int			ft_uilen(unsigned long uint);
 int			ft_hexlen(unsigned long addr);
 void		ft_putbighexn(unsigned long addr, int length);
 void		ft_puthexn(unsigned long addr, int length);
-void		ft_putui(unsigned int uint, int length);
+void		ft_putui(unsigned long uint, int length);
 void		ft_filln_with(int fieldsize, char chr);
-void		ft_putn_nbr(long number, int length);
-void		ft_put_sign(t_Config *config, int number);
+void		ft_putn_nbr(long long number, int length);
+void		ft_put_sign(t_Config *config, long long number);
 #endif

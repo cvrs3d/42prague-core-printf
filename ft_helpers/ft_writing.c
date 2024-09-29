@@ -6,11 +6,11 @@
 /*   By: yustinov <ev.ustinov03@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 11:38:30 by yustinov          #+#    #+#             */
-/*   Updated: 2024/09/29 11:55:26 by yustinov         ###   ########.fr       */
+/*   Updated: 2024/09/29 13:12:04 by yustinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libftprintf.h"
+#include "../ft_printf.h"
 
 /*
  * Widly used function, I defined its
@@ -38,7 +38,7 @@ void	ft_filln_with(int fieldsize, char chr)
  * the aproach is the same,     recursive
  * calls before printing while number > 0
 */
-void	ft_putn_nbr(long number, int length)
+void	ft_putn_nbr(long long number, int length)
 {
 	char	c;
 
@@ -65,7 +65,7 @@ void	ft_putn_nbr(long number, int length)
  * config and outputs sign depending on  flags
  * and number positivity as well.
 */
-void	ft_put_sign(t_Config *config, int number)
+void	ft_put_sign(t_Config *config, long long number)
 {
 	if (number < 0)
 	{
@@ -85,7 +85,7 @@ void	ft_put_sign(t_Config *config, int number)
 	return ;
 }
 
-void	ft_putui(unsigned int uint, int length)
+void	ft_putui(unsigned long uint, int length)
 {
 	char	c;
 

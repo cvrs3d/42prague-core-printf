@@ -6,11 +6,11 @@
 /*   By: yustinov <ev.ustinov03@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 11:38:56 by yustinov          #+#    #+#             */
-/*   Updated: 2024/09/26 10:38:43 by yustinov         ###   ########.fr       */
+/*   Updated: 2024/09/29 12:11:25 by yustinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 /* Given a mandatory variable char * and va_list;
  * First I initialize va_list and tell it that string is

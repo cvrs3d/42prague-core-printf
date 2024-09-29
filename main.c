@@ -6,12 +6,13 @@
 /*   By: yustinov <ev.ustinov03@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 12:19:11 by yustinov          #+#    #+#             */
-/*   Updated: 2024/09/28 15:46:08 by yustinov         ###   ########.fr       */
+/*   Updated: 2024/09/29 13:26:45 by yustinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 #include <stdio.h>
+#include <limits.h>
 
 int main(void)
 {
@@ -77,6 +78,22 @@ int main(void)
 
     printf("Space (printf): % d\n", 42);
     ft_printf("Space (ft_printf): % d\n", 42);
+
+    printf("Unsigned with negative passed (printf): %u\n", -42);
+    ft_printf("Unsigned with negative passed (ft_print): %u\n", -42);
+
+    printf("Zero passed (printf): %d\n", 0);
+    ft_printf("Zero passed (ft_print): %d\n", 0);
+
+    printf("Integer 0 (printf): %d\n", 0);
+    ft_printf("Integer 0 (ft_printf): %d\n", 0);
+
+    printf("Long MIN (printf): %d\n", 9223372036854775807LL);
+    ft_printf("Long MIN (ft_printf): %d\n", 9223372036854775807LL);
+
+    printf("Mixed specifiers (printf): %d %d %d %d %d %d %d\n", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42);
+    ft_printf("Mixed specifiers (ft_printf): %d %d %d %d %d %d %d\n", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42);
+
 
     return 0;
 }

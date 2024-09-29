@@ -6,11 +6,11 @@
 /*   By: yustinov <ev.ustinov03@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 10:38:16 by yustinov          #+#    #+#             */
-/*   Updated: 2024/09/26 13:54:38 by yustinov         ###   ########.fr       */
+/*   Updated: 2024/09/29 12:10:32 by yustinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 /*
  * Here is place where config packet      for

@@ -6,11 +6,11 @@
 /*   By: yustinov <ev.ustinov03@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 13:17:25 by yustinov          #+#    #+#             */
-/*   Updated: 2024/09/28 15:12:34 by yustinov         ###   ########.fr       */
+/*   Updated: 2024/09/29 12:12:05 by yustinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libftprintf.h"
+#include "../ft_printf.h"
 
 /* Handler for single char is defined here;
  * Arguments: It accepts 2 args, config and va_list;

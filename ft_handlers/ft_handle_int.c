@@ -6,15 +6,15 @@
 /*   By: yustinov <ev.ustinov03@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 10:42:58 by yustinov          #+#    #+#             */
-/*   Updated: 2024/09/29 11:54:12 by yustinov         ###   ########.fr       */
+/*   Updated: 2024/09/29 13:30:09 by yustinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libftprintf.h"
+#include "../ft_printf.h"
 //#include <stdio.h>
 
-static void	proc_right(t_Config *c, int i, int l, int w);
-static void	proc_left(t_Config *c, int i, int l, int w);
+static void	proc_right(t_Config *c, long long i, int l, int w);
+static void	proc_left(t_Config *c, long long i, int l, int w);
 
 /* 
  * Handling integers and decimal     (they are same);
@@ -28,16 +28,18 @@ static void	proc_left(t_Config *c, int i, int l, int w);
  */
 int	ft_handle_int(t_Config *config, va_list ap)
 {
-	int	integer;
-	int	ilen;
-	int	width;
+	long long	integer;
+	int			ilen;
+	int			width;
 
-	integer = va_arg(ap, int);
+	integer = (long long)va_arg(ap, int);
 	ilen = ft_numlen(integer);
 	if (config->precision != -1
 		&& config->precision > ilen)
 		ilen = config->precision;
 	if ((config->force_sign || config->space) && integer > 0)
+		ilen += 1;
+	if (integer == 0)
 		ilen += 1;
 	width = config->width - ilen;
 	if (width < 0)
@@ -56,21 +58,23 @@ int	ft_handle_int(t_Config *config, va_list ap)
  * characters 0 or <space> then outputs number with
  * leading zeroes if precision is greater then ilen
  */
-static void	proc_right(t_Config *c, int i, int l, int w)
+static void	proc_right(t_Config *c, long long i, int l, int w)
 {
-	long	n;
-
 	if (c->pad_zero == 1)
 		ft_filln_with(w, '0');
 	else if (c->force_sign != 1)
 		ft_filln_with(w, ' ');
-	n = (long)i;
-	if (i < 0)
-		n *= -1;
+	ft_put_sign(c, i);
 	if (c->force_sign == 1 || i < 0 || c->space == 1)
 		l--;
-	ft_put_sign(c, i);
-	ft_putn_nbr(n, l);
+	if (i < -9223372036854775807)
+	{
+		write (STDOUT_FILENO, "9223372036854775808", 19);
+		return ;
+	}
+	if (i < 0)
+		i *= -1;
+	ft_putn_nbr(i, l);
 }
 
 /*
@@ -80,16 +84,18 @@ static void	proc_right(t_Config *c, int i, int l, int w)
  * the end of field length if any left. Zero   flag
  * is omitted due to - flag usage.
  */
-static void	proc_left(t_Config *c, int i, int l, int w)
+static void	proc_left(t_Config *c, long long i, int l, int w)
 {
-	long	n;
-
 	ft_put_sign(c, i);
-	n = (long)i;
-	if (i < 0)
-		n *= -1;
 	if (c->force_sign == 1 || i < 0 || c->space == 1)
 		l--;
-	ft_putn_nbr(n, l);
+	if (i < -9223372036854775807)
+	{
+		write (STDOUT_FILENO, "9223372036854775808", 19);
+		return ;
+	}
+	if (i < 0)
+		i *= -1;
+	ft_putn_nbr(i, l);
 	ft_filln_with(w, ' ');
 }
