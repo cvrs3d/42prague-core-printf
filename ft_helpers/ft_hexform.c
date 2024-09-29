@@ -6,14 +6,14 @@
 /*   By: yustinov <ev.ustinov03@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 13:07:28 by yustinov          #+#    #+#             */
-/*   Updated: 2024/09/28 15:44:38 by yustinov         ###   ########.fr       */
+/*   Updated: 2024/09/29 11:18:45 by yustinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libftprintf.h"
 
 static const char	*g_hex = "0123456789abcdef";
-static const char       *g_bighex = "0123456789ABCDEF";
+static const char	*g_bighex = "0123456789ABCDEF";
 
 void	ft_puthexn(unsigned long address, int length)
 {
@@ -51,7 +51,7 @@ void	ft_putbighexn(unsigned long address, int length)
 		return ;
 	}
 	if (address >= 16)
-                ft_putbighexn(address / 16, length - 1);
+		ft_putbighexn(address / 16, length - 1);
 	write (STDOUT_FILENO, &g_bighex[address % 16], 1);
 	return ;
 }

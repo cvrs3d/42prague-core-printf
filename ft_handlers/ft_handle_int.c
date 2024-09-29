@@ -6,7 +6,7 @@
 /*   By: yustinov <ev.ustinov03@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 10:42:58 by yustinov          #+#    #+#             */
-/*   Updated: 2024/09/28 15:15:28 by yustinov         ###   ########.fr       */
+/*   Updated: 2024/09/29 11:54:12 by yustinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	ft_handle_int(t_Config *config, va_list ap)
 	if (config->precision != -1
 		&& config->precision > ilen)
 		ilen = config->precision;
-	if (config->force_sign || (config->space && integer > 0))
+	if ((config->force_sign || config->space) && integer > 0)
 		ilen += 1;
 	width = config->width - ilen;
 	if (width < 0)
@@ -60,7 +60,6 @@ static void	proc_right(t_Config *c, int i, int l, int w)
 {
 	long	n;
 
-	ft_put_sign(c, i);
 	if (c->pad_zero == 1)
 		ft_filln_with(w, '0');
 	else if (c->force_sign != 1)
@@ -68,8 +67,9 @@ static void	proc_right(t_Config *c, int i, int l, int w)
 	n = (long)i;
 	if (i < 0)
 		n *= -1;
-	if (c->force_sign == 1 || i < 0)
+	if (c->force_sign == 1 || i < 0 || c->space == 1)
 		l--;
+	ft_put_sign(c, i);
 	ft_putn_nbr(n, l);
 }
 
@@ -88,7 +88,7 @@ static void	proc_left(t_Config *c, int i, int l, int w)
 	n = (long)i;
 	if (i < 0)
 		n *= -1;
-	if (c->force_sign == 1 || i < 0)
+	if (c->force_sign == 1 || i < 0 || c->space == 1)
 		l--;
 	ft_putn_nbr(n, l);
 	ft_filln_with(w, ' ');

@@ -6,11 +6,12 @@
 /*   By: yustinov <ev.ustinov03@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 15:22:28 by yustinov          #+#    #+#             */
-/*   Updated: 2024/09/26 16:56:44 by yustinov         ###   ########.fr       */
+/*   Updated: 2024/09/29 11:49:16 by yustinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
+//#include <stdio.h>
 
 /* Parser of the conversions, works with 7
  * optional flags. Unlike real printf,  it
@@ -23,7 +24,7 @@
 
 static int	proc_width(const char **f, t_Config *c, va_list ap);
 static int	proc_precs(const char **f, va_list ap);
-static void	proc_zero(const char **f, t_Config *c, va_list ap);
+static void	proc_zero(const char **f, t_Config *c);
 
 int	ft_parse_convertion(const char **format, va_list ap)
 {
@@ -36,15 +37,15 @@ int	ft_parse_convertion(const char **format, va_list ap)
 	{
 		if (**format == '-')
 			config->left_justify = 1;
-		if (**format == '+')
+		else if (**format == '+')
 			config->force_sign = 1;
-		if (**format == '#')
+		else if (**format == '#')
 			config->hex_form = 1;
-		if (**format == ' ' || **format == '0')
-			proc_zero(format, config, ap);
-		if (**format == '.')
+		else if (**format == ' ' || **format == '0')
+			proc_zero(format, config);
+		else if (**format == '.')
 			config->precision = proc_precs(format, ap);
-		if (**format == '*' || ft_isdigit(**format) == 1)
+		else if (**format == '*' || ft_isdigit(**format) == 1)
 			config->width = proc_width(format, config, ap);
 		(*format)++;
 	}
@@ -98,15 +99,12 @@ static int	proc_width(const char **format, t_Config *cfg, va_list ap)
  * format string pointer then passing it to     the
  * width processing.
  */
-static void	proc_zero(const char **format, t_Config *cfg, va_list ap)
+static void	proc_zero(const char **format, t_Config *cfg)
 {
 	if (cfg->left_justify == 0 && **format == '0')
 		cfg->pad_zero = 1;
-	if (cfg->left_justify == 0 && **format == ' ')
+	if (cfg->force_sign == 0 && **format == ' ')
 		cfg->space = 1;
-	(*format)++;
-	if (ft_isdigit(**format) || **format == '*')
-		cfg->width = proc_width(format, cfg, ap);
 	return ;
 }
 

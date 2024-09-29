@@ -6,7 +6,7 @@
 /*   By: yustinov <ev.ustinov03@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 11:38:30 by yustinov          #+#    #+#             */
-/*   Updated: 2024/09/28 15:17:18 by yustinov         ###   ########.fr       */
+/*   Updated: 2024/09/29 11:55:26 by yustinov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,9 +72,14 @@ void	ft_put_sign(t_Config *config, int number)
 		write (STDOUT_FILENO, "-", 1);
 		return ;
 	}
-	if (config->force_sign == 1 && number > 0)
+	else if (config->force_sign == 1 && number > 0)
 	{
 		write (STDOUT_FILENO, "+", 1);
+		return ;
+	}
+	else if (config->space == 1 && number > 0)
+	{
+		write (STDOUT_FILENO, " ", 1);
 		return ;
 	}
 	return ;
